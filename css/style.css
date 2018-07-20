@@ -1,0 +1,81 @@
+body{
+  margin:0;
+  font-size: 16px;
+}
+
+div{
+  position:relative;
+  box-sizing:border-box;
+  padding: 20px;
+}
+.container{
+  width:100%;
+  min-height: 100vh;
+  padding:0;
+}
+
+.container:after{
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.container>div{
+  float: left;
+  height: auto;
+}
+
+.spaceship-list{
+  width: 100%;
+  background:  #0b88c5;
+  overflow: auto
+}
+
+.one-spaceship{
+  width: 100%;
+  background:  #000;
+}
+
+.searchbar{
+  position: relative;
+}
+
+#search-text,
+#search-button {
+  line-height: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #fae01f;
+}
+
+#search-text {
+ width:150px;
+}
+
+#search-button{
+  background: #fae01f;
+}
+
+#search-button:hover{
+  cursor: pointer;
+}
+
+@media(min-width:1200px){
+  .spaceship-list{
+    width: 75%;
+  }
+
+  .one-spaceship{
+    width: 25%;
+  }
+
+  .container>div{
+    height: 100vh;
+  }
+  
+  .searchbar{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
