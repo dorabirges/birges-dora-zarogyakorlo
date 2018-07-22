@@ -111,3 +111,6 @@ p {
 #spaceshipDetails {
   padding: 40px;
 }
+.selected-spaceship-image {
+  margin: 20px;
+}

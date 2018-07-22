@@ -1,6 +1,6 @@
 function getData(url, callbackFunc) {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = () => {
+  xhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       callbackFunc(this);
     }
@@ -192,7 +192,7 @@ function showOneSpaceship(spaceship) {
         oneSpaceshipString += `<p><strong>${k}:</strong> ${spaceship[k]}</p>`;
       }
     }
-    oneSpaceshipString += `</div><div><img src="../img/${spaceship.image}" onerror="this.src = '/img/no_image.png'"></div>`;
+    oneSpaceshipString += `</div><div><img src="../img/${spaceship.image}" onerror="this.src = '/img/no_image.png'" class="selected-spaceship-image"></div>`;
     oneSpaceship.innerHTML = oneSpaceshipString;
   } else {
     oneSpaceship.innerHTML = 'Nincs találat';
