@@ -187,8 +187,9 @@ function showOneSpaceship(spaceship) {
   var oneSpaceship = createSpaceshipDetailsIfNeeded();
   if (spaceship !== null) {
     var oneSpaceshipString = '<div class="selected-spaceship">';
+    oneSpaceshipString += `<h2>${spaceship.model}</h2>`;
     for (var k in spaceship) {
-      if (k !== 'image') {
+      if (k !== 'image' && k !== 'model') {
         oneSpaceshipString += `<p><strong>${k}:</strong> ${spaceship[k]}</p>`;
       }
     }
