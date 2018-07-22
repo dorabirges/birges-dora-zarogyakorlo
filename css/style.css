@@ -6,7 +6,6 @@ body{
 div{
   position:relative;
   box-sizing:border-box;
-  padding: 20px;
 }
 .container{
   width:100%;
@@ -27,13 +26,15 @@ div{
 
 .spaceship-list{
   width: 100%;
-  background:  #0b88c5;
+  background: url(/img/background.jpg);
+  color: #fff;
   overflow: auto
 }
 
 .one-spaceship{
   width: 100%;
-  background:  #000;
+  background-color: #000;
+  color: #fff;
 }
 
 .searchbar{
@@ -46,6 +47,7 @@ div{
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #fae01f;
+  outline: none;
 }
 
 #search-text {
@@ -78,4 +80,34 @@ div{
     bottom: 20px;
     left: 20px;
   }
+}
+
+.spaceship-item img {
+  border: 2px solid white;
+}
+.stat-image-div img{
+  margin: 0 40px;
+  border: 2px solid white;
+}
+.right {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
+
+.left {
+  width: 50%;
+  float: left;
+}
+.clear-div {
+  clear: both;
+}
+p {
+  margin: 0;
+}
+.spaceship-item {
+  padding: 20px 40px;
+}
+#spaceshipDetails {
+  padding: 40px;
 }

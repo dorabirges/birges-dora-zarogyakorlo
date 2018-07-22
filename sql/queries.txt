@@ -1,30 +1,30 @@
-Az alábbi lekérdezéseket írd meg mySQL-ben, és a lekérdezéseket a
+ï»¿Az alÃ¡bbi lekÃ©rdezÃ©seket Ã­rd meg mySQL-ben, Ã©s a lekÃ©rdezÃ©seket a
 _sql/queries.txt_ fileba mentsd el.
 
-1. Kérdezd le, hogy melyik gyártóhoz hány model tartozik. (Tehát a gyártó neve, és mellé a darabszám.)
-	SELECT manufacturer AS 'Gyártó', COUNT(model) AS 'Modellek darabszáma'
+1. KÃ©rdezd le, hogy melyik gyÃ¡rtÃ³hoz hÃ¡ny model tartozik. (TehÃ¡t a gyÃ¡rtÃ³ neve, Ã©s mellÃ© a darabszÃ¡m.)
+	SELECT manufacturer AS 'GyÃ¡rtÃ³', COUNT(model) AS 'Modellek darabszÃ¡ma'
 		FROM transport 
 		GROUP BY manufacturer;
 
-2. Kérdezd le, a három legnagyobb teherbírással (cargo_capacity) rendelkezõ hajó model (model) nevét, gyártóját(manufacturer), és képét (image)
-	SELECT model AS 'Modell', manufacturer AS 'Gyártó', image AS 'Kép'
+2. KÃ©rdezd le, a hÃ¡rom legnagyobb teherbÃ­rÃ¡ssal (cargo_capacity) rendelkezÅ‘ hajÃ³ model (model) nevÃ©t, gyÃ¡rtÃ³jÃ¡t(manufacturer), Ã©s kÃ©pÃ©t (image)
+	SELECT model AS 'Modell', manufacturer AS 'GyÃ¡rtÃ³', image AS 'KÃ©p'
 		FROM transport
 		ORDER BY cargo_capacity DESC
 		LIMIT 3;
 
-3. Kérdezd le azon hajók model nevét(model), mint Típus (tehát alias name-el), 
-* melyeknél a gyártó neve(manufacturer) A-val, B-vel, vagy C-vel kezdõdik és
-* melyeknél mind a cargo_capacity, a passengers, a max_atmospheric_speed, és a crew értéke is 1,
-	SELECT model AS 'Típus'
+3. KÃ©rdezd le azon hajÃ³k model nevÃ©t(model), mint TÃ­pus (tehÃ¡t alias name-el), 
+* melyeknÃ©l a gyÃ¡rtÃ³ neve(manufacturer) A-val, B-vel, vagy C-vel kezdÅ‘dik Ã©s
+* melyeknÃ©l mind a cargo_capacity, a passengers, a max_atmospheric_speed, Ã©s a crew Ã©rtÃ©ke is 1,
+	SELECT model AS 'TÃ­pus'
 		FROM transport
 		WHERE manufacturer LIKE 'a%' OR manufacturer LIKE 'b%' OR manufacturer LIKE 'c%'
 		AND
 		cargo_capacity=1 AND passengers=1 AND max_atmosphering_speed=1 AND crew=1;
 
-4. Kérdezd le azon hajók minden adatát, 
-* melynek gyártójának(manufacturer) nevében szerepel a Corporation szó, 
-* az utasok száma(passangers) nagyobb, mint 0, 
-* az ár(cost_in_creadits) pedig 10000, és 200000 közötti.
+4. KÃ©rdezd le azon hajÃ³k minden adatÃ¡t, 
+* melynek gyÃ¡rtÃ³jÃ¡nak(manufacturer) nevÃ©ben szerepel a Corporation szÃ³, 
+* az utasok szÃ¡ma(passangers) nagyobb, mint 0, 
+* az Ã¡r(cost_in_creadits) pedig 10000, Ã©s 200000 kÃ¶zÃ¶tti.
 	SELECT * FROM transport
 		WHERE manufacturer LIKE '%Corporation%' 
     		AND 
@@ -32,10 +32,10 @@ _sql/queries.txt_ fileba mentsd el.
     		AND 
     		cost_in_credits BETWEEN 10000 AND 200000;
 
-5. Kérdezd le az elsõ három hajó nevét(model), mint Megnevezés, és gyártóját(manufacturer), mint Gyártó a legénység száma(crew) szerint csoportosítva
-* melyeknél a legénység(crew) száma 1 és 5 közötti, és
-* meg van adva (nem NULL), és nem 0 a passengers, és a cargo_capacity értéke
-	SELECT model AS 'Megnevezés', manufacturer AS 'Gyártó' FROM transport
+5. KÃ©rdezd le az elsÅ‘ hÃ¡rom hajÃ³ nevÃ©t(model), mint MegnevezÃ©s, Ã©s gyÃ¡rtÃ³jÃ¡t(manufacturer), mint GyÃ¡rtÃ³ a legÃ©nysÃ©g szÃ¡ma(crew) szerint csoportosÃ­tva
+* melyeknÃ©l a legÃ©nysÃ©g(crew) szÃ¡ma 1 Ã©s 5 kÃ¶zÃ¶tti, Ã©s
+* meg van adva (nem NULL), Ã©s nem 0 a passengers, Ã©s a cargo_capacity Ã©rtÃ©ke
+	SELECT model AS 'MegnevezÃ©s', manufacturer AS 'GyÃ¡rtÃ³' FROM transport
 		WHERE crew BETWEEN 1 AND 5
 		AND
 		passengers<>'NULL' AND passengers<>0 AND cargo_capacity<>'NULL' AND cargo_capacity<>0
